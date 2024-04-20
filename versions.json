@@ -1,0 +1,12 @@
+{
+	"versions": [
+		{
+			"package_version": "0.1.0",
+			"download_url": "https://github.com/coveleski/ap-pmr-poptracker/releases/download/pre-release/ap-pmr-emotracker-0.1.0.zip",
+			"sha256": "6832E0DD7016D6EAEE58C613AB6DFB58444A0ECF0C9315B87DA4F88ADFA132C7",
+			"changelog": [
+                "Inital AP support"
+			]
+		}
+	]
+}
