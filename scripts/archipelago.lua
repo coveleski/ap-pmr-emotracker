@@ -15,7 +15,7 @@ LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
 
 function onClear(slot_data)
-    print("in onClear")
+    print("starting onClear")
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         -- print(string.format("called onClear, slot_data:\n%s", dump_table(slot_data)))
     end
@@ -67,7 +67,201 @@ function onClear(slot_data)
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
 
-    --get_slot_options(slot_data)
+    print('getting slot options')
+    print('contents of slot_data')
+    for key,value in pairs(slot_data) do
+        print(key, value)
+    end
+    
+
+    if slot_data['include_shops'] then
+        local obj = Tracker:FindObjectForCode('shopsanity_setting')
+        if obj then
+            obj.Active = slot_data['include_shops']
+        end
+    end
+
+    if slot_data['rowf_items'] then
+        local obj = Tracker:FindObjectForCode('rowf_setting')
+        if obj then
+            obj.Active = slot_data['rowf_items']
+        end
+    end
+
+    if slot_data['merlow_items'] then
+        local obj = Tracker:FindObjectForCode('merlow_setting')
+        if obj then
+            obj.Active = slot_data['merlow_items']
+        end
+    end
+
+    if slot_data['keysanity'] then
+        local obj = Tracker:FindObjectForCode('keysanity_setting')
+        if obj then
+            obj.Active = slot_data['keysanity']
+        end
+    end
+
+    if slot_data['shuffle_hidden_panels'] then
+        local obj = Tracker:FindObjectForCode('panels_setting')
+        if obj then
+            obj.Active = slot_data['shuffle_hidden_panels']
+        end
+    end
+
+    if slot_data['overworld_coins'] then
+        local obj = Tracker:FindObjectForCode('coins_setting')
+        if obj then
+            obj.Active = slot_data['overworld_coins']
+        end
+    end
+
+    if slot_data['coin_blocks'] then
+        local obj = Tracker:FindObjectForCode('coin_block_setting')
+        if obj then
+            obj.Active = slot_data['coin_blocks']
+        end
+    end
+
+    if slot_data['foliage_coins'] then
+        local obj = Tracker:FindObjectForCode('foliage_setting')
+        if obj then
+            obj.Active = slot_data['foliage_coins']
+        end
+    end
+
+    if slot_data['letter_rewards'] then
+        local obj = Tracker:FindObjectForCode('letters_setting')
+        if obj then
+            obj.Active = slot_data['letter_rewards']
+        end
+    end
+
+    if slot_data['dojo'] then
+        local obj = Tracker:FindObjectForCode('dojo_setting')
+        if obj then
+            obj.Active = slot_data['dojo']
+        end
+    end
+
+    if slot_data['koot_favors'] then
+        local obj = Tracker:FindObjectForCode('koot_setting')
+        if obj then
+            obj.Active = slot_data['koot_favors']
+        end
+    end
+
+    if slot_data['trading_events'] then
+        local obj = Tracker:FindObjectForCode('trading_setting')
+        if obj then
+            obj.Active = slot_data['trading_events']
+        end
+    end
+
+    if slot_data['partner_upgrades'] then
+        local obj = Tracker:FindObjectForCode('upgrades_setting')
+        if obj then
+            obj.Active = slot_data['partner_upgrades']
+        end
+    end
+
+    if slot_data['coin_blocks'] then
+        local obj = Tracker:FindObjectForCode('multicoin_setting')
+        if obj then
+            obj.Active = slot_data['coin_blocks']
+        end
+    end
+
+    if slot_data['shuffle_dungeon_entrances'] then
+        local obj = Tracker:FindObjectForCode('dungeon_setting')
+        if obj then
+            obj.Active = slot_data['shuffle_dungeon_entrances']
+        end
+    end
+
+    if slot_data['partners_always_usuable'] then
+        local obj = Tracker:FindObjectForCode('parners_always')
+        if obj then
+            obj.Active = slot_data['partners_always_usuable']
+        end
+    end
+
+    if slot_data['open_prologue'] then
+        local obj = Tracker:FindObjectForCode('open_prologue')
+        if obj then
+            obj.Active = slot_data['open_prologue']
+        end
+    end
+
+    if slot_data['open_blue_house'] then
+        local obj = Tracker:FindObjectForCode('open_blue_house')
+        if obj then
+            obj.Active = slot_data['open_blue_house']
+        end
+    end
+
+    if slot_data['cook_without_frying_pan'] then
+        local obj = Tracker:FindObjectForCode('open_cooking')
+        if obj then
+            obj.Active = slot_data['cook_without_frying_pan']
+        end
+    end
+
+    if slot_data['hidden_block_mode'] then
+        local obj = Tracker:FindObjectForCode('hidden_blocks_visible')
+        if obj then
+            obj.Active = slot_data['hidden_block_mode']
+        end
+    end
+
+    if slot_data['open_mt_rugged'] then
+        local obj = Tracker:FindObjectForCode('open_mt_rugged')
+        if obj then
+            obj.Active = slot_data['open_mt_rugged']
+        end
+    end
+
+    if slot_data['open_forest'] then
+        local obj = Tracker:FindObjectForCode('open_forest')
+        if obj then
+            obj.Active = slot_data['open_forest']
+        end
+    end
+
+    if slot_data['open_toybox'] then
+        local obj = Tracker:FindObjectForCode('open_toy_box')
+        if obj then
+            obj.Active = slot_data['open_toybox']
+        end
+    end
+
+    if slot_data['open_whale'] then
+        local obj = Tracker:FindObjectForCode('open_whale')
+        if obj then
+            obj.Active = slot_data['open_whale']
+        end
+    end
+
+    if slot_data['ch7_bridge_visible'] then
+        local obj = Tracker:FindObjectForCode('open_ch7_bridge')
+        if obj then
+            obj.Active = slot_data['ch7_bridge_visible']
+        end
+    end
+
+    if slot_data['open_whale'] then
+        local obj = Tracker:FindObjectForCode('open_twhale')
+        if obj then
+            obj.Active = slot_data['open_whale']
+        end
+    end
+
+    if slot_data['magic_seeds'] then
+        local obj = Tracker:FindObjectForCode('ch6_seeds_0')
+        if obj then
+            obj.CurrentStage = slot_data['magic_seeds']
+        end
+    end
 end
 
 -- called when an item gets collected
@@ -178,4 +372,3 @@ end
 if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
-print("found the end")
